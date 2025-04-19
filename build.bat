@@ -1,0 +1,1 @@
+call vcvars64.bat && cmake --build .\build

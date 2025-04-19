@@ -1,0 +1,1 @@
+call vcvars64.bat && rmdir /s /q build && mkdir build && cmake -G Ninja -DPHYSON_EXAMPLES=ON -DPHYSON_TESTS=ON -DCMAKE_BUILD_TYPE=Debug -B ./build -S . && cmake --build ./build -j 10
