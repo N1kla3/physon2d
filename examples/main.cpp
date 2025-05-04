@@ -1,8 +1,10 @@
 #include <iostream>
 #include "Particle.h"
 
-int main(){
+int main()
+{
     phys2::Particle part;
-    std::cout << "Hello, World!" << std::endl;
+
+    part.integrate(0.1);
     return 0;
 }

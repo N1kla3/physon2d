@@ -10,8 +10,14 @@ add_subdirectory(glm)
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
 add_library(Physon2d
+        src/Types.h
         src/Particle.cpp
-        src/Particle.h)
+        src/Particle.h
+        src/ForceGenerators.h
+        src/ForceGenerators.cpp
+        src/PhysScene.h
+        src/PhysScene.cpp
+)
 target_link_libraries(Physon2d PUBLIC glm::glm)
 
 if (PHYSON_EXAMPLES)
