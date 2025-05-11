@@ -21,6 +21,7 @@ add_library(Physon2d
 target_link_libraries(Physon2d PUBLIC glm::glm)
 
 if (PHYSON_EXAMPLES)
+    add_subdirectory(raylib)
     add_subdirectory(examples)
 endif ()
 

@@ -7,7 +7,7 @@ namespace phys2
     {
     private:
         vec2 m_Position = {};
-        real_t m_InvertMass = 0;
+        real_t m_InvertMass = 1;
 
         vec2 m_Velocity = {};
         vec2 m_Acceleration = {};
@@ -19,6 +19,15 @@ namespace phys2
     public:
         void resetForce();
         void addForce(vec2 force);
+        void addVelocity(vec2 velocity);
         void integrate(float deltaTime);
+
+        void setMass(real_t mass);
+
+        vec2 getVelocity() const;
+        real_t getDamping() const;
+        real_t getMass() const;
+        vec2 getPosition() const;
+        bool hasFiniteMass() const;
     };
 } // namespace phys2
