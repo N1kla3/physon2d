@@ -55,6 +55,11 @@ phys2::real_t phys2::Particle::getMass() const
     return 1 / m_InvertMass;
 }
 
+phys2::real_t phys2::Particle::getInverseMass() const
+{
+    return m_InvertMass;
+}
+
 phys2::vec2 phys2::Particle::getPosition() const
 {
     return m_Position;
