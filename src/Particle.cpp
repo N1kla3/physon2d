@@ -1,5 +1,6 @@
 
 #include "Particle.h"
+#include "ParticleContact.h"
 
 void phys2::Particle::resetForce()
 {
@@ -38,6 +39,11 @@ void phys2::Particle::setMass(real_t mass)
 {
     assert(mass > 0.0);
     m_InvertMass = 1 / mass;
+}
+
+void phys2::Particle::setPosition(vec2 pos)
+{
+    m_Position = pos;
 }
 
 phys2::vec2 phys2::Particle::getVelocity() const

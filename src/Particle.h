@@ -23,6 +23,7 @@ namespace phys2
         void integrate(float deltaTime);
 
         void setMass(real_t mass);
+        void setPosition(vec2 pos);
 
         vec2 getVelocity() const;
         real_t getDamping() const;
