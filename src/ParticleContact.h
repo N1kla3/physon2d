@@ -13,15 +13,16 @@ namespace phys2
 
         real_t m_Penetration;
 
-    protected:
+    public:
         void resolve(real_t duration);
+
         real_t calculateSeparatingVelocity() const;
+        real_t getTotalInverseMass() const;
 
     private:
         void resolveVelocity(real_t duration);
         void resolveInpenetration(real_t duration);
 
-        real_t getTotalInverseMass() const;
 
         void calculateInpenetrationParticle(Particle* particle, vec2 move_per_mass);
         void calculateVelocityParticle(Particle* particle, vec2 impulse_per_mass);

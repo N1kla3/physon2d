@@ -51,6 +51,11 @@ phys2::vec2 phys2::Particle::getVelocity() const
     return m_Velocity;
 }
 
+phys2::vec2 phys2::Particle::getAcceleration() const
+{
+    return m_Acceleration;
+}
+
 phys2::real_t phys2::Particle::getDamping() const
 {
     return m_Damping;

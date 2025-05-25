@@ -26,6 +26,7 @@ namespace phys2
         void setPosition(vec2 pos);
 
         vec2 getVelocity() const;
+        vec2 getAcceleration() const;
         real_t getDamping() const;
         real_t getMass() const;
         real_t getInverseMass() const;
