@@ -1,5 +1,5 @@
 #include "ForceGenerators.h"
-#include "glm/geometric.hpp"
+#include <cassert>
 
 phys2::AccumulatedForceGenerator::AccumulatedForceGenerator(vec2 inForce)
     : m_Force(inForce)
@@ -32,11 +32,11 @@ void phys2::DampingGenerator::updateForce(Particle* particle, real_t delta)
 
     vec2 current_velocity = particle->getVelocity();
 
-    real_t drag_value = glm::length(current_velocity);
+    real_t drag_value = current_velocity.len();
     // calculate real drag
     drag_value = m_K1 * drag_value + m_K2 * drag_value * drag_value;
 
-    current_velocity = glm::normalize(current_velocity);
+    current_velocity.normalize();
 
     // drag in opposite direction
     vec2 resulted_force = current_velocity * -drag_value;

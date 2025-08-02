@@ -2,12 +2,14 @@ cmake_minimum_required(VERSION 3.30)
 project(Physon2d)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 
 set(PHYSON_EXAMPLES)
 set(PHYSON_TESTS)
 
-add_subdirectory(glm)
+add_subdirectory(mort)
 include_directories(${CMAKE_SOURCE_DIR}/src)
+include_directories(${CMAKE_SOURCE_DIR})
 
 add_library(Physon2d
         src/Types.h
@@ -20,7 +22,7 @@ add_library(Physon2d
         src/PhysScene.h
         src/PhysScene.cpp
 )
-target_link_libraries(Physon2d PUBLIC glm::glm)
+target_link_libraries(Physon2d PUBLIC mort)
 
 if (PHYSON_EXAMPLES)
     add_subdirectory(raylib)

@@ -1,9 +1,9 @@
 [submodule "googletest"]
 	path = googletest
 	url = git@github.com:google/googletest.git
-[submodule "glm"]
-	path = glm
-	url = git@github.com:g-truc/glm.git
 [submodule "raylib"]
 	path = raylib
 	url = git@github.com:raysan5/raylib.git
+[submodule "mort"]
+	path = mort
+	url = git@github.com:N1kla3/mort.git
