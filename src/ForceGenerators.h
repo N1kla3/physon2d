@@ -52,8 +52,10 @@ namespace phys2
         real_t m_K1;
         real_t m_K2;
 
-    protected:
+    public:
         DampingGenerator(real_t kof1, real_t kof2);
+
+    protected:
         virtual void updateForce(Particle* particle, real_t delta) override;
     };
 

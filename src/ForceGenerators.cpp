@@ -1,5 +1,27 @@
 #include "ForceGenerators.h"
+#include <algorithm>
 #include <cassert>
+
+void phys2::ParticleRegistry::addParticle(Particle* particle, ForceGenerator* generator)
+{
+    m_Registry.emplace_back(particle, generator);
+}
+
+void phys2::ParticleRegistry::removeParticle(Particle* particle, ForceGenerator* generator)
+{
+    [[maybe_unused]] auto res = std::remove_if(m_Registry.begin(),
+                                               m_Registry.end(),
+                                               [particle, generator](const ParticleRegistration& reg)
+                                               { return reg.particle == particle && reg.generator == generator; });
+}
+
+void phys2::ParticleRegistry::updateAll(real_t deltaTime)
+{
+    for (const auto& [particle, generator]: m_Registry)
+    {
+        generator->updateForce(particle, deltaTime);
+    }
+}
 
 phys2::AccumulatedForceGenerator::AccumulatedForceGenerator(vec2 inForce)
     : m_Force(inForce)
@@ -59,8 +81,8 @@ void phys2::SpringGenerator::updateForce(Particle* particle, real_t delta)
     vec2 pos_b = m_OtherParticle->getVelocity();
     vec2 sub = pos_a - pos_b;
 
-    real_t magnitude = glm::length(sub);
-    vec2 normal = glm::normalize(sub);
+    real_t magnitude = sub.len();
+    vec2 normal = sub.getNormalized();
 
     vec2 force = -m_SpringConstant * (magnitude - m_SpringRestLen) * normal;
 

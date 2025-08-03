@@ -1,10 +1,12 @@
 
 #include "Particle.h"
+#include <cassert>
 #include "ParticleContact.h"
 
 void phys2::Particle::resetForce()
 {
     m_ResultedForce = {0, 0};
+    m_Acceleration = {0, 0};
 }
 
 void phys2::Particle::addForce(vec2 force)
@@ -30,7 +32,7 @@ void phys2::Particle::integrate(const float deltaTime)
 
     m_Velocity += m_Acceleration * deltaTime;
 
-    m_Velocity *= std::powf(m_Damping, deltaTime);
+    // m_Velocity *= std::powf(m_Damping, deltaTime);
 
     resetForce();
 }

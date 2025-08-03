@@ -1,6 +1,5 @@
 #include "ParticleContact.h"
 #include <algorithm>
-#include "glm/geometric.hpp"
 
 void phys2::ParticleContact::resolve(real_t duration)
 {
@@ -17,7 +16,7 @@ phys2::real_t phys2::ParticleContact::calculateSeparatingVelocity() const
         closing_vel -= m_Particles[1]->getVelocity();
     }
 
-    return glm::dot(closing_vel, m_ContactNormal);
+    return closing_vel.dot(m_ContactNormal);
 }
 
 void phys2::ParticleContact::resolveVelocity(real_t duration)
@@ -36,7 +35,7 @@ void phys2::ParticleContact::resolveVelocity(real_t duration)
     {
         acc_caused_vel -= m_Particles[1]->getAcceleration();
     }
-    real_t acc_caused_sep_vel = glm::dot(acc_caused_vel, m_ContactNormal) * duration;
+    real_t acc_caused_sep_vel = acc_caused_vel.dot(m_ContactNormal) * duration;
     if (acc_caused_sep_vel < 0)
     {
         new_sep_vel += m_Restitution * acc_caused_sep_vel;
