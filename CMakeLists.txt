@@ -17,6 +17,8 @@ add_library(Physon2d
         src/Particle.h
         src/ParticleContact.cpp
         src/ParticleContact.h
+        src/ContactsResolver.h
+        src/ContactsResolver.cpp
         src/ForceGenerators.h
         src/ForceGenerators.cpp
         src/PhysScene.h

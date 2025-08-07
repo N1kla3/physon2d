@@ -1,6 +1,13 @@
 #include "ParticleContact.h"
 #include <algorithm>
 
+
+phys2::ParticleContact::ParticleContact(Particle* one, Particle* two)
+{
+    m_Particles[0] = one;
+    m_Particles[1] = two;
+}
+
 void phys2::ParticleContact::resolve(real_t duration)
 {
     resolveVelocity(duration);

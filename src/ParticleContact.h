@@ -14,6 +14,7 @@ namespace phys2
         real_t m_Penetration;
 
     public:
+        ParticleContact(Particle* one, Particle* two);
         void resolve(real_t duration);
 
         real_t calculateSeparatingVelocity() const;
