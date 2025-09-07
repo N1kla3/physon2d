@@ -23,8 +23,11 @@ add_library(Physon2d
         src/ForceGenerators.cpp
         src/PhysScene.h
         src/PhysScene.cpp
+        src/BaseCollisions.h
+        src/BaseCollisions.cpp
 )
 target_link_libraries(Physon2d PUBLIC mort)
+target_compile_definitions(Physon2d PRIVATE PHYS_SIMD=0)
 
 if (PHYSON_EXAMPLES)
     add_subdirectory(raylib)
